@@ -7,7 +7,7 @@ export const config = {
     "street": " ",
     "number": " ",
     "block": " ",
-    "stairs": " ",
+    "entrance": " ",
     "floor": " ",
     "apt": " ",
     "intercom": " ",

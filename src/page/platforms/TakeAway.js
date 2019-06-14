@@ -36,7 +36,7 @@ export class TakeAway extends BasePlatform {
     fillOrder() {
         document.querySelector("#iaddress").value = config.street + config.number;
         document.querySelector("#iblock").value = config.block;
-        document.querySelector("#ientrance").value = config.stairs;
+        document.querySelector("#ientrance").value = config.entrance;
         document.querySelector("#ifloor").value = config.floor;
         document.querySelector("#iapartmentname").value = config.apt;
         document.querySelector("#iintercom").value = config.intercom;

@@ -370,7 +370,7 @@
     "street": "Calea Victoriei ",
     "number": "155 ",
     "block": "Bloc D1 ",
-    "stairs": "Tronson 7 ",
+    "entrance": "Tronson 7 ",
     "floor": "Etaj 8 ",
     "apt": "Apt A8 ",
     "intercom": "-",

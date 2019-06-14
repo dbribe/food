@@ -30,7 +30,7 @@ export class SushiTerra extends BasePlatform {
 
     fillOrder() {
         document.querySelector("#billing_address_1").value =  config.street + config.number + config.block;
-        document.querySelector("#billing_address_2").value = config.stairs + config.floor;
+        document.querySelector("#billing_address_2").value = config.entrance + config.floor;
         document.querySelector("#billing_first_name").value = config.firstName;
         document.querySelector("#billing_last_name").value = config.lastName;
         document.querySelector("#billing_email").value = config.email;
