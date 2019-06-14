@@ -1,0 +1,6 @@
+src/node_modules
+src/package-lock.json
+src/page/config.js
+src/.idea/*
+.idea/*
+.DS_Store
