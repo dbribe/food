@@ -419,18 +419,19 @@
           item.element.querySelector(".add_to_cart_button").click();
           total += item.price;
           console.log(total);
-        }, 0);
+        }, 1000);
       }
     }, {
       key: "fillOrder",
       value: function fillOrder() {
         document.querySelector("#billing_address_1").value = config.street + config.number + config.block;
-        document.querySelector("#billing_address_2").value = config.stairs + config.floor;
+        document.querySelector("#billing_address_2").value = config.entrance + config.floor;
         document.querySelector("#billing_first_name").value = config.firstName;
         document.querySelector("#billing_last_name").value = config.lastName;
         document.querySelector("#billing_email").value = config.email;
         document.querySelector("#billing_phone").value = config.phone;
         document.querySelector("#billing_city").value = config.city;
+        document.querySelector("[name=\"terms\"]").click();
       }
     }]);
 
@@ -451,7 +452,7 @@
     _createClass(TakeAway, [{
       key: "getDishes",
       value: function getDishes() {
-        var elements = document.querySelectorAll(".meal");
+        var elements = document.querySelectorAll(".meal.meal__top-button");
         return _toConsumableArray(elements).map(function (element) {
           return {
             element: element,
@@ -477,8 +478,8 @@
           total += item.price;
           console.log(total);
           setTimeout(function () {
-            if (parseFloat(document.querySelector(".btn-cart-price").innerText.replace(",", ".")) != total.toFixed(2)) {
-              item.element.querySelector(".cartbutton-button-sidedishes").click();
+            if (parseFloat(document.querySelector(".cart-sum-price").innerText.replace(",", ".")) != total.toFixed(2)) {
+              item.element.parentNode.querySelector(".cartbutton-button-sidedishes").click();
             }
           }, 1400);
         }, 2000);
@@ -488,7 +489,7 @@
       value: function fillOrder() {
         document.querySelector("#iaddress").value = config.street + config.number;
         document.querySelector("#iblock").value = config.block;
-        document.querySelector("#ientrance").value = config.stairs;
+        document.querySelector("#ientrance").value = config.entrance;
         document.querySelector("#ifloor").value = config.floor;
         document.querySelector("#iapartmentname").value = config.apt;
         document.querySelector("#iintercom").value = config.intercom;

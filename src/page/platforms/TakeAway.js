@@ -3,7 +3,7 @@ import {config} from "../config";
 
 export class TakeAway extends BasePlatform {
     getDishes() {
-        const elements = document.querySelectorAll(".meal");
+        const elements = document.querySelectorAll(".meal.meal__top-button");
         return [...elements].map(element => {
             return {
                 element,
@@ -26,8 +26,8 @@ export class TakeAway extends BasePlatform {
             total += item.price;
             console.log(total);
             setTimeout(() => {
-                if (parseFloat(document.querySelector(".btn-cart-price").innerText.replace(",",".")) != total.toFixed(2)) {
-                    item.element.querySelector(".cartbutton-button-sidedishes").click();
+                if (parseFloat(document.querySelector(".cart-sum-price").innerText.replace(",",".")) != total.toFixed(2)) {
+                    item.element.parentNode.querySelector(".cartbutton-button-sidedishes").click();
                 }
             }, 1400);
         }, 2000);
