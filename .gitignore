@@ -4,3 +4,6 @@ src/page/config.js
 src/.idea/*
 .idea/*
 .DS_Store
+/src/api/constants.js
+/src/api/credentials.json
+/src/api/token.json
