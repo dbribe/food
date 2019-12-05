@@ -20,6 +20,7 @@ export class FoodPanda extends BasePlatform {
             index++;
             if (index == itemsToOrder.length) {
                 clearInterval(intervalOrder);
+                this.showMismatches();
             }
             const item = itemsToOrder[index];
             item.element.click();

@@ -19,6 +19,7 @@ export class Caserola extends BasePlatform{
             index++;
             if (index == itemsToOrder.length) {
                 clearInterval(intervalOrder);
+                this.showMismatches();
             }
             const item = itemsToOrder[index];
             item.element.querySelector(".add-to-cart-button").click();

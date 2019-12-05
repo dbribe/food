@@ -166,6 +166,7 @@
       _classCallCheck(this, BasePlatform);
 
       this.dishes = [];
+      this.mismatches = [];
     }
 
     _createClass(BasePlatform, [{
@@ -191,6 +192,7 @@
 
         if (bestScore > .25) {
           console.warn("Mismatch", str, bestScore);
+          this.mismatches.push(str.trim());
           return null;
         }
 
@@ -199,6 +201,7 @@
     }, {
       key: "order",
       value: function order(data) {
+        this.mismatches = [];
         this.dishes = this.getDishes();
         var itemsToOrder = [];
         var _iteratorNormalCompletion = true;
@@ -298,6 +301,15 @@
         this.orderItems(itemsToOrder);
       }
     }, {
+      key: "showMismatches",
+      value: function showMismatches() {
+        if (this.mismatches.length) {
+          alert("Mismatched dishes:\n• " + this.mismatches.join("\n• ") + "\nPlease order these items manually.");
+        } else {
+          alert("No mismatches :). You can continue safely.");
+        }
+      }
+    }, {
       key: "orderItems",
       value: function orderItems() {}
     }, {
@@ -343,6 +355,8 @@
     }, {
       key: "orderItems",
       value: function orderItems(itemsToOrder) {
+        var _this = this;
+
         var total = 0;
         var index = -1;
         var intervalOrder = setInterval(function () {
@@ -350,6 +364,8 @@
 
           if (index == itemsToOrder.length) {
             clearInterval(intervalOrder);
+
+            _this.showMismatches();
           }
 
           var item = itemsToOrder[index];
@@ -406,6 +422,8 @@
     }, {
       key: "orderItems",
       value: function orderItems(itemsToOrder) {
+        var _this = this;
+
         var total = 0;
         var index = -1;
         var intervalOrder = setInterval(function () {
@@ -413,6 +431,8 @@
 
           if (index == itemsToOrder.length) {
             clearInterval(intervalOrder);
+
+            _this.showMismatches();
           }
 
           var item = itemsToOrder[index];
@@ -464,6 +484,8 @@
     }, {
       key: "orderItems",
       value: function orderItems(itemsToOrder) {
+        var _this = this;
+
         var index = -1;
         var total = 0;
         var intervalOrder = setInterval(function () {
@@ -471,6 +493,8 @@
 
           if (index == itemsToOrder.length) {
             clearInterval(intervalOrder);
+
+            _this.showMismatches();
           }
 
           var item = itemsToOrder[index];
@@ -528,6 +552,8 @@
     }, {
       key: "orderItems",
       value: function orderItems(itemsToOrder) {
+        var _this = this;
+
         var index = -1;
         var total = 0;
         var intervalOrder = setInterval(function () {
@@ -535,6 +561,8 @@
 
           if (index == itemsToOrder.length) {
             clearInterval(intervalOrder);
+
+            _this.showMismatches();
           }
 
           var item = itemsToOrder[index];

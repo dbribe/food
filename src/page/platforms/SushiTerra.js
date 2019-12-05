@@ -20,6 +20,7 @@ export class SushiTerra extends BasePlatform {
             index++;
             if (index == itemsToOrder.length) {
                 clearInterval(intervalOrder);
+                this.showMismatches();
             }
             const item = itemsToOrder[index];
             item.element.querySelector(".add_to_cart_button").click();

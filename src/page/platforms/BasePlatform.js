@@ -2,6 +2,7 @@ import {levenshtein} from "../Utils";
 
 export class BasePlatform {
     dishes = [];
+    mismatches = [];
 
     // Format of the array should be {element, title, price}
     getDishes() {
@@ -19,12 +20,14 @@ export class BasePlatform {
         }
         if (bestScore > .25) {
             console.warn("Mismatch", str, bestScore);
+            this.mismatches.push(str.trim());
             return null;
         }
         return dish;
     }
 
     order(data) {
+        this.mismatches = [];
         this.dishes = this.getDishes();
         let total = 0;
         let itemsToOrder = [];
@@ -71,6 +74,14 @@ export class BasePlatform {
         }
 
         this.orderItems(itemsToOrder);
+    }
+
+    showMismatches() {
+        if (this.mismatches.length) {
+            alert("Mismatched dishes:\n• " + this.mismatches.join("\n• ") + "\nPlease order these items manually.");
+        } else {
+            alert("No mismatches :). You can continue safely.");
+        }
     }
 
     orderItems() {}
